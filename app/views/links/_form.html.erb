@@ -1,0 +1,19 @@
+<%= form_for(@link, remote: true) do |f| %>
+  <% if @link.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@link.errors.count, "error") %> prohibited this link from being saved:</h2>
+
+      <ul>
+      <% @link.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="field">
+    <%= f.text_field :long_url, :class => "form-control", :placeholder => "Paste a link to shorten" %>
+  </div>
+  <div class="actions">
+    <%= f.submit 'Shorten Me', :class => "btn btn-primary"%>
+  </div>
+<% end %>
